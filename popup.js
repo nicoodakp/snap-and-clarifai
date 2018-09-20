@@ -74,8 +74,6 @@ function doPredict(value) {
 				 // end draw box
 					console.log(response.outputs[0].data.regions[i].data.face.identity.concepts[0].name);
 
-
-
 					var source = "https://www.youtube.com/results?search_query="+capname + "+" + capfamilynamename;
 					var catDiv = document.createElement("h3");
 					console.log(typeof source);									//target=" + "_top" + " " + "
@@ -108,7 +106,6 @@ function doPredict(value) {
 							return false;
 					// console.log("click work?");
 							});
-
 //  Purpose: Return a capitalized String
 //  Args:
 //    s - A String

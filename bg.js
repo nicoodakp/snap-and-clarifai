@@ -1,5 +1,4 @@
 ///// crxCS
-
 var crxCS = new (function CrxCS() {
 	this.insert = function(tab, details, cb) {
 		var script;
