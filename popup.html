@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="popup.css"> <!-- loading frontend-->
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'> <!-- loading frontend-->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+
+		<style>
+			p, img {
+				margin: 5px;
+				width: 400px;
+			}
+			p {
+				font-size: 20px;
+			}
+			img {
+				background-color: #b5b5b5;
+				margin: 5px;
+				width: 400px;
+				cursor: pointer;
+			}
+			img:hover {
+				box-shadow: 0px 0px 15px 1px rgba(0, 134, 255, 0.8);
+			}
+		</style>
+
+	</head>
+	<body>
+<!--loading icon  frontend-->
+<a  class="action-button shadow animate blue" id= "predict" style="position: relative; left: 1.3in;">Predict</a>
+	<div class="load-wrapp" id = "loading" alt = "loading" style="position: relative; left: 1.5in; display:none" >
+					<div class="load-5">
+								<div class="ring-2" style="position: relative; left: -7px;">
+									<div class="ball-holder">
+											<div class="ball"></div>
+									</div>
+							</div>
+					</div>
+			</div>
+<!--loading  icon frontend-->
+
+
+<script src="popup.js"></script>
+	</body>
+</html>
