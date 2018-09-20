@@ -86,31 +86,8 @@ var crxCS = new (function CrxCS() {
 		call("CrxCS.CallA", tab, funcName, resultCb);
 	};
 })();
-
-
-///// end crxCS
-
-
-
-
-//  capture process
-
+///end crxCS
 var notFound = document.createElement("p");
-// notFound.innerText = "The video elements was not found in the visible area.";
-
-// var notFoundimgholder = document.createElement("img");
-// notFoundimgholder.innerText = ".";
-// notFoundimgholder.setAttribute = ("src", "");
-// notFoundimgholder.setAttribute = ('height', '1px');
-// notFoundimgholder.setAttribute('width', '1px');
-
-// oImg.setAttribute('src', 'http://www.testtrackinglink.com');
-// oImg.setAttribute('alt', 'na');
-// oImg.setAttribute('height', '1px');
-// oImg.setAttribute('width', '1px');
-// document.body.appendChild(oImg);
-
-
 
 
 function capture(popup) {
@@ -122,16 +99,10 @@ function capture(popup) {
     }
   }
 
-
   crxCS.insert(null, { file: "capture.js" }, function() {
-
-
     crxCS.callA(null, "get", function(result) {
 
       var scrShot, zm, bufCav, bufCavCtx;
-
-
-
       function mkImgList() {
         for (var i = 0; i < result.vidShots.length; i++) {
           var img = new popup.Image();
@@ -146,9 +117,6 @@ function capture(popup) {
             bufCav.height = result.vidShots[i].height * zm;
             bufCavCtx.drawImage(scrShot, -result.vidShots[i].left * zm, -result.vidShots[i].top * zm);
             img.src = bufCav.toDataURL('image/png');
-
-
-
           }
 
           popup.document.body.appendChild(img);
@@ -187,14 +155,7 @@ function capture(popup) {
       } else {
 				popup.document.body.appendChild(notFound);
 				// popup.document.body.appendChild(notFoundimgholder);
-
-
       }
-
     });  // end crxCS.callA
   });   // end crxCS.insert
 }  // end capture function
-
-// window.capture = capture;
-
-//  end capture process

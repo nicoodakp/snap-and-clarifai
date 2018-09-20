@@ -1,6 +1,6 @@
 {
    "background": {
-      "scripts": [ "crxcs.js", "bg.js"]
+      "scripts": [ "bg.js"]
 
    },
    "browser_action": {

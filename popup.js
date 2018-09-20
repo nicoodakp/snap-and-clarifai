@@ -37,10 +37,6 @@ var imgb64src, width, height, imgdetail;
 					doPredict({ base64: imgdetail });
 		});   //end ('action-button').click(function(){
 
-
-
-
-
 	//  after some appetize, now its time for the main dish
 function doPredict(value) {
 	app.models.predict("e466caa0619f444ab97497640cefc4dc", value).then(
@@ -83,31 +79,15 @@ function doPredict(value) {
 					var source = "https://www.youtube.com/results?search_query="+capname + "+" + capfamilynamename;
 					var catDiv = document.createElement("h3");
 					console.log(typeof source);									//target=" + "_top" + " " + "
-					catDiv.innerHTML = "Name:" + " " + "<a"  + " "+  "target=" + "_blank" + " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + capname + " " + capfamilynamename + "</a>" + " " +  " " + percentageprob + "</h3>";
+					catDiv.innerHTML = "Name:" + " " + "<a"  + " "+  " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + capname + " " + capfamilynamename + "</a>" + " " +  " " + percentageprob + "</h3>";
 					// catDiv.setAttribute('alt', 'namee');
 					catDiv.setAttribute('class', 'namee');
-					// catDiv.setAttribute('id', "name"+i );
-					// $('h3').on('click', 'a', function (){  // point user to the link stated by a tag
-					// 	chrome.tabs.create({active: false, url: $(this).attr('href')});
-					// 			return false;
-					// 			});
+
 
 					catDiv.setAttribute('align', 'center');
 					document.body.appendChild(catDiv);
 					// chrome.tabs.create({active: false, url: $(this).attr('https://www.youtube.com/results?search_query="+capname + "+" + capfamilynamename')});
 					$('.load-wrapp').hide();
-
-					// $('h3').on('click', 'a', function (){  // sth wrong... 
-					// 	chrome.tabs.create({active: false, url: source});
-					// 			return false;
-					// 			});
-
-					// if()
-
-					// $('.action-button').click(function(){
-
-
-
 				} // end check for region for loop
 			} // end if
 			else {
@@ -122,18 +102,12 @@ function doPredict(value) {
 	} // end doPredict
 }); /// end doc ready function
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     var links = document.getElementById("link");
-//     for (var i = 0; i < links.length; i++) {
-//         (function () {
-//             var ln = links[i];
-//             var location = ln.href;
-//             ln.onclick = function () {
-//                 chrome.tabs.create({active: true, url: location});
-//             };
-//         })();
-//     }
-// });
+/// once the click generate successful, bind even to the link, and open it benhind
+		$('body').on('click', 'a.linky', function (){
+					chrome.tabs.create({active: false, url: $(this).attr('href')});
+							return false;
+					// console.log("click work?");
+							});
 
 //  Purpose: Return a capitalized String
 //  Args:
