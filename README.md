@@ -10,11 +10,7 @@
 Reference: \
 [Clarifai cloud engine](https://www.clarifai.com/models/celebrity-image-recognition-model-e466caa0619f444ab97497640cefc4dc) \
            [clarifai-javascript-starter](https://github.com/Clarifai/javascript-starter) \
-<<<<<<< HEAD
            [Yulon](https://chrome.google.com/webstore/detail/video-snapshotscreenshot/fngkpediphdinmlceebdlgbafgccjeaj?hl=en)
-=======
-           [Yulon](https://chrome.google.com/webstore/detail/video-snapshotscreenshot/fngkpediphdinmlceebdlgbafgccjeaj?hl=en) 
->>>>>>> 107f37aa9239f7f316aaa1bed5edf78b4c3644d4
 
 p.s: I should have clari'fai' I hava not tested on any chrome/mac/linux os yet. my enviroment is windows 10, and I am using jquery 3.3.1.
 
