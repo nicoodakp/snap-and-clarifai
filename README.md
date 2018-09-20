@@ -7,5 +7,5 @@
 
 p.s: I should have clari'fai' I hava not tested on any chrome/mac/linux os yet. my enviroment is windows 10, and I am using jquery 3.3.1.
 
-9/20/18 - fixed the dynamic click event
-          some css changes
+9/20/18 - fixed the dynamic on.click event
+          and some css changes
