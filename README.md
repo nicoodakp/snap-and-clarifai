@@ -1,3 +1,5 @@
+[![Alt text](https://github.com/nicoodakp/snap-and-clarifai-master/blob/master/128.png?raw=true)](https://youtu.be/c0L_1zuz5jU)
+
 # snap-and-clarifai-master
 
 1. When watching video or youtube, tab the app and it will take video snapshot from the video frame .
