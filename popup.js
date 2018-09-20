@@ -1,9 +1,9 @@
-chrome.runtime.getBackgroundPage(function(bg) {
-	bg.capture(window);
-});
 
 $(function(){    ///doc ready
 // $( document ).ready(function() {
+chrome.runtime.getBackgroundPage(function(bg) {
+	bg.capture(window);
+});
 try {
 	var app = new Clarifai.App({
 	 apiKey: "e806d305ca32413ab54eaed155e5c7bc"
@@ -15,7 +15,7 @@ catch(err) {
 }
 
 var imgb64src, width, height, imgdetail;
-
+/// once click generate name and link, return err msg if fail
 	$('.action-button').click(function(){
 	try {
 		  imgb64src = $('img').attr('src');  // get b64 string
@@ -35,7 +35,18 @@ var imgb64src, width, height, imgdetail;
 			$(this).hide();
 			$('.load-wrapp').show();
 					doPredict({ base64: imgdetail });
+
 		});   //end ('action-button').click(function(){
+
+
+/// once the click generate successful, bind even to the link, and open it benhind
+		$('body').on('click', 'a.linky', function (){
+					chrome.tabs.create({active: false, url: $(this).attr('href')});
+							return false;
+					// console.log("click work?");
+							});
+
+
 
 	//  after some appetize, now its time for the main dish
 function doPredict(value) {
@@ -54,9 +65,11 @@ function doPredict(value) {
 						response.outputs[0].data.hasOwnProperty("concepts")){
 				regionArray = response.outputs[0].data.regions;
 
+
+// if found, then for i , grab these datas
 				for(var i = 0; i < regionArray.length; i++) {
 
-   // if found, then for i , grab these datas
+
 				         name = response.outputs[0].data.regions[i].data.face.identity.concepts[0].name;
 					processname =  name.split(" ")[0];
 		processfamilyname =  name.split(" ")[1];
@@ -74,22 +87,21 @@ function doPredict(value) {
 				 // end draw box
 					console.log(response.outputs[0].data.regions[i].data.face.identity.concepts[0].name);
 
+
+
 					var source = "https://www.youtube.com/results?search_query="+capname + "+" + capfamilynamename;
-					var catDiv = document.createElement("h3");
-					console.log(typeof source);									//target=" + "_top" + " " + "
-					catDiv.innerHTML = "Name:" + " " + "<a"  + " "+  " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + capname + " " + capfamilynamename + "</a>" + " " +  " " + percentageprob + "</h3>";
+					var catDiv = document.createElement("p");
+					console.log(typeof source);									//"target=" + "_blank" +
+					catDiv.innerHTML = "Name:" + " " + "<a"  + " " + " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + capname + " " + capfamilynamename + "</a>" + " " +  " " + percentageprob + "</h3>";
 					// catDiv.setAttribute('alt', 'namee');
 					catDiv.setAttribute('class', 'namee');
-
-
 					catDiv.setAttribute('align', 'center');
 					document.body.appendChild(catDiv);
-					// chrome.tabs.create({active: false, url: $(this).attr('https://www.youtube.com/results?search_query="+capname + "+" + capfamilynamename')});
 					$('.load-wrapp').hide();
 				} // end check for region for loop
 			} // end if
 			else {
-				var catDiv = document.createElement("h3");
+				var catDiv = document.createElement("p");
 				catDiv.innerHTML = "I didn't see faces. :(";
 				catDiv.setAttribute('align', 'center');
 				document.body.appendChild(catDiv);
@@ -100,12 +112,6 @@ function doPredict(value) {
 	} // end doPredict
 }); /// end doc ready function
 
-/// once the click generate successful, bind even to the link, and open it benhind
-		$('body').on('click', 'a.linky', function (){
-					chrome.tabs.create({active: false, url: $(this).attr('href')});
-							return false;
-					// console.log("click work?");
-							});
 //  Purpose: Return a capitalized String
 //  Args:
 //    s - A String
