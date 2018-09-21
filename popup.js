@@ -27,9 +27,9 @@ var imgb64src, width, height, imgdetail;
 			}
 	catch(err) {
 				alert("I can't seem to finding any videos...");
-				throw "I can't seem to finding any videos...";
+				// throw "I can't seem to finding any videos...";
 				// $('.load-wrapp').hide();
-
+				return false;
 							}
 			//// clarifai there
 			$(this).hide();
