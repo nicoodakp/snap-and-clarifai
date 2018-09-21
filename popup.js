@@ -71,10 +71,7 @@ function doPredict(value) {
 
 
 				         name = response.outputs[0].data.regions[i].data.face.identity.concepts[0].name;
-					processname =  name.split(" ")[0];
-		processfamilyname =  name.split(" ")[1];
-					    capname = capitalize(processname);
-    capfamilynamename = capitalize(processfamilyname);
+					   fullname = capitalize(name);
 
 								 prob = response.outputs[0].data.regions[i].data.face.identity.concepts[0].value;
        percentageprob = percentile(prob);
@@ -89,10 +86,10 @@ function doPredict(value) {
 
 
 
-					var source = "https://www.youtube.com/results?search_query="+capname + "+" + capfamilynamename;
+					var source = "https://www.youtube.com/results?search_query="+fullname;
 					var catDiv = document.createElement("p");
 					console.log(typeof source);									//"target=" + "_blank" +
-					catDiv.innerHTML = "Name:" + " " + "<a"  + " " + " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + capname + " " + capfamilynamename + "</a>" + " " +  " " + percentageprob + "</h3>";
+					catDiv.innerHTML = "Name:" + " " + "<a"  + " " + " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + fullname + "</a>" + " " +   "" + percentageprob;
 					// catDiv.setAttribute('alt', 'namee');
 					catDiv.setAttribute('class', 'namee');
 					catDiv.setAttribute('align', 'center');
@@ -115,9 +112,12 @@ function doPredict(value) {
 //  Purpose: Return a capitalized String
 //  Args:
 //    s - A String
-function capitalize(s)
-{
-  return s[0].toUpperCase() + s.slice(1);
+ function capitalize(str) {
+	str = str.toLowerCase().split(' ');
+	for (var i = 0; i < str.length; i++) {
+		str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+	}
+	return str.join(' ');
 };
 
 function percentile(s){  /// convert probability
