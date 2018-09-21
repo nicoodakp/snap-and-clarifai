@@ -1,6 +1,6 @@
 [![Alt text](https://github.com/nicoodakp/snap-and-clarifai-master/blob/master/128.png?raw=true)](https://youtu.be/c0L_1zuz5jU)
 
-# snap-and-clarifai-master
+# snap-and-clarifai
 
 1. When watching video or YouTube, tab the app and it will take video snapshot from the video frame .
 2. hit "Predict" and the image will parse to the Claifai API. And return celebrity names.
