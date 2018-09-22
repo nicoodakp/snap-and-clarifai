@@ -309,3 +309,15 @@ p {
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
+
+canvas#canvas
+{
+  position: absolute;
+  /* top: 0.18in;
+  left: 17px; */
+  border: 0.3px solid #4b9cdb;
+  margin: -10px;
+  /* height: 225px;
+  width: 400px; */
+  /* background: #00ffffff; */
+}
