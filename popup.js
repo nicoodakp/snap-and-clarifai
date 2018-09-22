@@ -4,6 +4,9 @@ $(function(){    ///doc ready
 chrome.runtime.getBackgroundPage(function(bg) {
 	bg.capture(window);
 });
+
+
+
 try {
 	var app = new Clarifai.App({
 	 apiKey: "e806d305ca32413ab54eaed155e5c7bc"
@@ -14,8 +17,8 @@ catch(err) {
 	throw "Invalid API Key";
 }
 
-var imgb64src, width, height, imgdetail;
-/// once click generate name and link, return err msg if fail
+var imgb64src, width, height, imgdetail, canvas, ctx;
+/// once clicked generate name and link, return err msg if fail
 	$('.action-button').click(function(){
 	try {
 		  imgb64src = $('img').attr('src');  // get b64 string
@@ -24,7 +27,9 @@ var imgb64src, width, height, imgdetail;
 		 	imgdetail = imgb64src.replace(/^data:image\/(.*);base64,/, '');  // pure b64 string for Clarifai
 			console.log(height);
 
-			}
+
+
+				}
 	catch(err) {
 				alert("I can't seem to finding any videos...");
 				// throw "I can't seem to finding any videos...";
@@ -39,13 +44,25 @@ var imgb64src, width, height, imgdetail;
 		});   //end ('action-button').click(function(){
 
 
-/// once the click generate successful, bind even to the link, and open it benhind
-		$('body').on('click', 'a.linky', function (){
-					chrome.tabs.create({active: false, url: $(this).attr('href')});
-							return false;
-					// console.log("click work?");
-							});
+/// once the click generate successful, bind even to the link, and open tab benhind
 
+$('body').on('click', 'a.linky', function (){
+			chrome.tabs.create({active: false, url: $(this).attr('href')});
+				return false;
+		// console.log("click work?");
+				});
+
+
+/// draw bounding box while hover to name
+$( 'body' ).on('mouseenter', 'a.linky',  function () {
+// image2 = new Image();
+// image2.src = $('img').attr('src');
+// console.log("mouse hover work?");
+// ctx.rect(x, y, w, h);
+// ctx.lineWidth = "2.5";
+// ctx.stroke();
+					});
+/// end draw box
 
 
 	//  after some appetize, now its time for the main dish
@@ -65,6 +82,10 @@ function doPredict(value) {
 						response.outputs[0].data.hasOwnProperty("concepts")){
 				regionArray = response.outputs[0].data.regions;
 
+				// canvas set up
+	// $('img').after( '<canvas id = "canvas"></canvas>' ); /// canvas ready for draw face box
+			// end, also adjust the position through css, so now its overlay on img
+
 
 // if found, then for i , grab these datas
 				for(var i = 0; i < regionArray.length; i++) {
@@ -81,7 +102,33 @@ function doPredict(value) {
 					left = response.outputs[0].data.regions[i].region_info.bounding_box.left_col;
 				 right = response.outputs[0].data.regions[i].region_info.bounding_box.right_col;
 				bottom = response.outputs[0].data.regions[i].region_info.bounding_box.bottom_row;
-				 // end draw box
+
+      x =  (response.outputs[0].data.regions[i].region_info.bounding_box.left_col) * 225;
+      y =  (response.outputs[0].data.regions[i].region_info.bounding_box.top_row) * 400;
+      w =  (response.outputs[0].data.regions[i].region_info.bounding_box.right_col-response.outputs[0].data.regions[i].region_info.bounding_box.left_col) * 225;
+      h =  (response.outputs[0].data.regions[i].region_info.bounding_box.bottom_row-response.outputs[0].data.regions[i].region_info.bounding_box.top_row) * 400;
+			// drawandconnect(x,y,w,h);
+
+			// canvas set up
+			$('img').after( '<canvas id = "canvas"></canvas>' ); /// canvas ready for draw face box
+		// end, also adjust the position through css, so now its overlay on img
+			var c = document.getElementById("canvas");
+			var ctx = c.getContext("2d");
+			c.width = w*2.8;
+			c.height = h*(.985);
+			c.style.left = x*1.966+"px";
+			c.style.top = y*(0.59582)+"px";
+console.log("x are"+" " + x);
+			// ctx.strokeStyle = "#FF0000";
+			// ctx.strokeRect(x, y, w, h);
+
+
+
+
+			console.log(x);
+
+				 // end gather box data
+
 					console.log(response.outputs[0].data.regions[i].data.face.identity.concepts[0].name);
 
 
@@ -95,6 +142,8 @@ function doPredict(value) {
 					catDiv.setAttribute('align', 'center');
 					document.body.appendChild(catDiv);
 					$('.load-wrapp').hide();
+
+
 				} // end check for region for loop
 			} // end if
 			else {
@@ -108,6 +157,11 @@ function doPredict(value) {
 	  );  // end app model predict
 	} // end doPredict
 }); /// end doc ready function
+
+// draw box - user hover name, show bounding boundingbox
+
+
+
 
 //  Purpose: Return a capitalized String
 //  Args:
