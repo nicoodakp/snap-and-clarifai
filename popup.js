@@ -1,11 +1,9 @@
-
-$(function(){    ///doc ready
-// $( document ).ready(function() {
 chrome.runtime.getBackgroundPage(function(bg) {
 	bg.capture(window);
 });
 
-
+$(function(){    ///doc ready
+// $( document ).ready(function() {
 
 try {
 	var app = new Clarifai.App({
@@ -18,8 +16,10 @@ catch(err) {
 }
 
 var imgb64src, width, height, imgdetail, canvas, ctx;
+
+// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 /// once clicked generate name and link, return err msg if fail
-	$('.action-button').click(function(){
+	$('.button-three').click(function analysis(){
 	try {
 		  imgb64src = $('img').attr('src');  // get b64 string
 			    width = $('img').width();
@@ -42,7 +42,7 @@ var imgb64src, width, height, imgdetail, canvas, ctx;
 					doPredict({ base64: imgdetail });
 
 		});   //end ('action-button').click(function(){
-
+// });  // end chrome.tabs.onUpdated.addListener
 
 /// once the click generate successful, bind even to the link, and open tab benhind
 
@@ -54,13 +54,14 @@ $('body').on('click', 'a.linky', function (){
 
 
 /// draw bounding box while hover to name
+
 $( 'body' ).on('mouseenter', 'a.linky',  function () {
-// image2 = new Image();
-// image2.src = $('img').attr('src');
-// console.log("mouse hover work?");
-// ctx.rect(x, y, w, h);
-// ctx.lineWidth = "2.5";
-// ctx.stroke();
+			console.log($( 'canvas' ).length);
+		for(var i = 0; i < $( 'canvas' ).length; i++) {
+		$( 'canvas' ).show(1);
+	}
+
+
 					});
 /// end draw box
 
@@ -116,22 +117,15 @@ function doPredict(value) {
 			var ctx = c.getContext("2d");
 			c.width = w*2.8;
 			c.height = h*(.985);
-			c.style.left = x*1.966+"px";
+			c.style.left = x*1.84855+"px";
 			c.style.top = y*(0.59582)+"px";
-console.log("x are"+" " + x);
+			console.log("x are"+" " + x);
+
 			// ctx.strokeStyle = "#FF0000";
 			// ctx.strokeRect(x, y, w, h);
-
-
-
-
 			console.log(x);
-
 				 // end gather box data
-
 					console.log(response.outputs[0].data.regions[i].data.face.identity.concepts[0].name);
-
-
 
 					var source = "https://www.youtube.com/results?search_query="+fullname;
 					var catDiv = document.createElement("p");
