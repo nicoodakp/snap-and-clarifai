@@ -4,17 +4,19 @@
 
 body {
     margin: 0 auto;
-    padding: 12px;
+    padding: 1px;
     max-width: 455px;
     overflow-y: scroll;
     font-family: 'Open Sans',sans-serif;
     font-weight: 400;
-    color: #777;
-    background-color: #000000;
+    background: linear-gradient(135deg, rgba(85,239,203,1) 0%,rgba(30,87,153,1) 0%,rgba(85,239,203,1) 0%,rgba(91,202,255,1) 100%);
+    color: #f7f7f7;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
+
+
 
 /* .content {
     padding: 15px;
@@ -31,7 +33,7 @@ body {
  */
 /* h1 span {font-family: monospace,serif;} */
 a.linky:-webkit-any-link {
-    color: #1fc71f;
+    color: #356077;
     cursor: pointer;
     text-decoration: underline;
     text-decoration-line: none;  /* get off the underline*/
@@ -51,11 +53,14 @@ h3 {
 p {
   padding-top: 10px;
   padding-bottom: 10px;
-    box-shadow: 0 1px 0 rgba(0,0,0,.1) ,0 2px 0 rgba(0,0,0);
+    box-shadow: 0 1px 0 rgba(0,0,0,.1) ,0 2px 0 rgba(250,250,250);
     color: #ffffff;
     font-size: 20px;
     font-family: 'Pacifico', cursive;
 }
+
+
+
 
 .clear {clear:both;}
 
@@ -68,12 +73,14 @@ p {
 .load-wrapp {
     float: left;
     width: 100px;
-    height: 50px;
+    height: 30px;
     margin: 0 10px 10px 0;
     padding: 10px 20px 10px;
     border-radius: 5px;
     text-align: center;
-    background-color: #000000;
+    background: initial;
+    /* linear-gradient(135deg, rgba(85,239,203,1) 0%,rgba(91,202,255,1) 100%); */
+    color: #f7f7f7;
 }
 
 .load-wrapp p {padding: 0 0 20px;}
@@ -84,7 +91,7 @@ p {
     width: 15px;
     height: 15px;
     border-radius: 15px;
-    background-color: #4b9cdb;
+    background: #4b9cdb;
 }
 
 .ring-1 {
@@ -135,7 +142,7 @@ p {
     width: 12px;
     height: 12px;
     border-radius: 4px;
-    background-color: #4b9cdb;
+    background: #4b9cdb;
 }
 
 .spinner {
@@ -152,7 +159,7 @@ p {
     width: 25px;
     height: 25px;
     border-radius: 100%;
-    background-color: #4b9cdb;
+    background: #4b9cdb;
 }
 
 .bubble-2 {
@@ -165,7 +172,7 @@ p {
     width: 15px;
     height: 6px;
     border-radius: 2px;
-    background-color: #4b9cdb;
+    background: #4b9cdb;
 }
 
 /* =Animate the stuff
@@ -274,7 +281,7 @@ p {
 
   50% {
       transform: translate(80px,0);
-      background-color: #f5634a;
+      background: #f5634a;
       width: 25px;
   }
 }
@@ -298,7 +305,7 @@ p {
 
 .blue
 {
-	background-color: #3498DB;
+	background: #3498DB;
 	border-bottom: 5px solid #2980B9;
 	text-shadow: 0px -2px #2980B9;
 }
@@ -313,11 +320,11 @@ p {
 canvas#canvas
 {
   position: absolute;
-  /* top: 0.18in;
-  left: 17px; */
+  /* top: 180.377px;
+  left: 41.3225px; */
   border: 0.3px solid #4b9cdb;
-  margin: -10px;
+  margin: -6px;
   /* height: 225px;
   width: 400px; */
-  /* background: #00ffffff; */
+  /* display: none; */
 }
