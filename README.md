@@ -7,13 +7,13 @@
 3. Backend javascript do the part of snapshot, where popup.js do the image parsing, analysis and return result.
 4. (fixed) I am still working on the 'onclick' event in popup.js 100:103, the links wont render accordingly. For now the remedy is catDiv.innerHTML from popup.js 86 where I insert a tag 'target =  blank' to the src.
 5. Working on chrome:// address error, background error when open tab in chrome://url
-6. add drawbox function and css, working on mouse hover/enter event.
+6. add drawbox function and some css improvement, working on mouse hover/enter event (to draw specific box).
 
 Reference: \
 [Clarifai cloud engine](https://www.clarifai.com/models/celebrity-image-recognition-model-e466caa0619f444ab97497640cefc4dc) \
            [clarifai-javascript-starter](https://github.com/Clarifai/javascript-starter) \
            [Yulon](https://chrome.google.com/webstore/detail/video-snapshotscreenshot/fngkpediphdinmlceebdlgbafgccjeaj?hl=en)
-           [The loading css](https://codepen.io/Manoz/pen/pydxK)
+           [The loading css](https://codepen.io/Manoz/pen/pydxK) \
            [The button css](https://codepen.io/mohaiman/pen/jqKzVb)
            []()
 
