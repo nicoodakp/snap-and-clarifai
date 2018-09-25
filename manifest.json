@@ -19,7 +19,7 @@
       "48": "48.png"
    },
    "manifest_version": 2,
-   "content_security_policy": "script-src 'self' https://sdk.clarifai.com/js/clarifai-latest.js https://code.jquery.com/jquery-3.3.1.min.js; object-src 'self'" ,
+   "content_security_policy": "script-src 'self' https://sdk.clarifai.com/js/clarifai-latest.js https://code.jquery.com/jquery-3.3.1.min.js https://www.google.com/; object-src 'self'" ,
    "name": "ClarifAi my video snapshot",
    "permissions": [ "activeTab", "downloads", "\u003Call_urls>","tabs",
         "notifications",
