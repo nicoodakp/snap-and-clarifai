@@ -12,7 +12,7 @@
 Reference: \
 [Clarifai cloud engine](https://www.clarifai.com/models/celebrity-image-recognition-model-e466caa0619f444ab97497640cefc4dc) \
            [clarifai-javascript-starter](https://github.com/Clarifai/javascript-starter) \
-           [Yulon](https://chrome.google.com/webstore/detail/video-snapshotscreenshot/fngkpediphdinmlceebdlgbafgccjeaj?hl=en)
+           [Yulon](https://chrome.google.com/webstore/detail/video-snapshotscreenshot/fngkpediphdinmlceebdlgbafgccjeaj?hl=en) \
            [The loading css](https://codepen.io/Manoz/pen/pydxK) \
            [The button css](https://codepen.io/mohaiman/pen/jqKzVb)
            []()
