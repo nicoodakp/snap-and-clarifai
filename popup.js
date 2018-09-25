@@ -37,7 +37,7 @@ var imgb64src, width, height, imgdetail, canvas, ctx;
 				return false;
 							}
 			//// clarifai there
-			$(this).hide();
+					$(this).hide();
 			$('.load-wrapp').show();
 					doPredict({ base64: imgdetail });
 
@@ -127,7 +127,7 @@ function doPredict(value) {
 				 // end gather box data
 					console.log(response.outputs[0].data.regions[i].data.face.identity.concepts[0].name);
 
-					var source = "https://www.youtube.com/results?search_query="+fullname;
+					var source = "https://www.youtube.com/results?search_query="+fullname.split(' ').join('+');
 					var catDiv = document.createElement("p");
 					console.log(typeof source);									//"target=" + "_blank" +
 					catDiv.innerHTML = "Name:" + " " + "<a"  + " " + " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + fullname + "</a>" + " " +   "" + percentageprob;
