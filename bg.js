@@ -147,7 +147,6 @@ function capture(popup) {
           };
           scrShot.src = dataUrl;
 
-
         });
       } else if (result.vidShots.length) {
         callOnLoad(mkImgList);
