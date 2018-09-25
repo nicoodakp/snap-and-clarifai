@@ -2,7 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="popup.css"> <!-- loading frontend-->
+		<link rel="stylesheet" type="text/css" href="loading.css">
+		<link rel="stylesheet" type="text/css" href="button2.css">
+		<link rel="stylesheet" type="text/css" href="popup.css">
+		<!-- loading frontend-->
+
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'> <!-- loading frontend-->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
@@ -30,15 +34,19 @@
 	<body>
 <!--loading icon  frontend-->
 
-<a  href="#" class="action-button shadow animate blue" id= "predict" style="position: relative; left: 1.3in; top: -0px;">Predict</a>
-	<div  class="load-wrapp" id = "loading" alt = "loading" style="position: relative; left: 1.5in; display:none" >
-					<div class="load-5">
-								<div class="ring-2" style="position: relative; left: -7px;">
-									<div class="ball-holder">
-											<div class="ball"></div>
-									</div>
-							</div>
-					</div>
+<!-- <a  href="#" class="action-button shadow animate blue" id= "predict" style="position: relative; left: 1.3in; top: 5px;">Predict</a> -->
+
+    <!-- <div class="sub-main"> -->
+      <button class="button-three">Predict</button>
+    </div>
+	<div  class="load-wrapp" id = "loading" alt = "loading" style="position: relative; left: 1.5in; top: 5px; display:none" >
+		<div class="load-wrapp" style="position: relative; left: -25px; top: -5px;">
+			<div class="load-1">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+			</div>
+	</div>
 			</div>
 <!--loading  icon frontend-->
 <script src="popup.js"></script>
