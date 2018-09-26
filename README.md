@@ -24,8 +24,8 @@ p.s: I should clari'fai' I hava not tested on any chrome/mac/linux os yet. my en
 1. Git clone or fork the project.
 2. Unzip the folder.  
 3. Please visit [Clarifai](https://clarifai.com/developer/account/login) to register and apply for a API key.
-4. Open the unzip download folder, went to popup.js 8:9 and replace it with your own key   
+4. Open the unzipped download folder, went to popup.js 8:9 and replace it with your own key.   
 5. Download [Chrome Browser](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMItt7T8NDZ3QIVkorICh3-tgDIEAAYASABEgJQSPD_BwE&gclsrc=aw.ds&dclid=CLjjz_LQ2d0CFZJ2wQodzD0L-w)  
-6. type 'chrome://extensions/' in the new chrome browser.
-7. Enable Developer Mode (in the upper right)  
-8. Load unpacked --> then open the git project folder  
+6. Type 'chrome://extensions/' in the new chrome browser.
+7. Enable Developer Mode (in the upper right).  
+8. Load unpacked --> then open the git project folder.  
