@@ -3,7 +3,6 @@ chrome.runtime.getBackgroundPage(function(bg) {
 });
 
 $(function(){    ///doc ready
-// $( document ).ready(function() {
 
 try {
 	var app = new Clarifai.App({
@@ -20,7 +19,6 @@ catch(err) {
 
 var imgb64src, width, height, imgdetail, canvas, ctx;
 
-// chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 /// once clicked generate name and link, return err msg if fail
 	$('.button-three').click(function analysis(){
 	try {
