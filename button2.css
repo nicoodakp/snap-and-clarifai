@@ -108,8 +108,9 @@ a:hover{
 
 /*Button Three*/
 .button-three {
-    margin-top: 14px;
-    margin-bottom: 10px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    margin-right:  1.1in;
     position: relative;
     background-color: inherit;
     border-style: solid;
@@ -131,7 +132,7 @@ a:hover{
 
 .button-three:after {
     content: "";
-    background: #f1c40f;
+    background: #ffffff;
     display: block;
     position: absolute;
     padding-top: 300%;
