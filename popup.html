@@ -15,9 +15,9 @@
 				margin: 5px;
 				width: 400px;
 			}
-			/* p {
-				font-size: 20px;
-			} */
+			p.error {
+				padding-top: 10px;
+			}
 			img {
 				background-color: #ea1010;
 				margin: 5px;
@@ -25,19 +25,16 @@
 				cursor: pointer;
 			}
 			img:hover {
-				box-shadow: 0px 0px 15px 5px rgba(234,16,16);
+				box-shadow: 0px 0px 15px 5px rgba(255,255,255);
 			}
 		</style>
-
+<script src="popup.js"></script>
 	</head>
 	<body>
 <!--loading icon  frontend-->
 
-<!-- <a  href="#" class="action-button shadow animate blue" id= "predict" style="position: relative; left: 1.3in; top: 5px;">Predict</a> -->
+      <button class="button-three" style="position: relative;left: 5px; top: 10px">Predict</button>
 
-    <!-- <div class="sub-main"> -->
-      <button class="button-three" style="position: relative;left: 10px">Predict</button>
-    </div>
 	<div  class="load-wrapp" id = "loading" alt = "loading" style="position: relative; left: 1.5in; top: 12px; display:none" >
 		<div class="load-wrapp" style="position: relative; left: -25px; top: -5px;">
 			<div class="load-1">
@@ -48,7 +45,7 @@
 	</div>
 			</div>
 <!--loading  icon frontend-->
-<script src="popup.js"></script>
+
 
 	</body>
 </html>
