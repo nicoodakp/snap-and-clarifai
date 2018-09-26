@@ -38,6 +38,7 @@ var crxCS = new (function CrxCS() {
 		});
 
 		chrome.tabs.executeScript(tab, {
+
 			code: `
 				if (!("crxCS" in window)) {
 					window.crxCS = {};
@@ -56,6 +57,8 @@ var crxCS = new (function CrxCS() {
 					crxCS.InsertedScript = {};
 				}
 
+
+
 				if ("` + script + `" in crxCS.InsertedScript) {
 					chrome.runtime.sendMessage(null, { type: "CrxCS.Inserted", script: \`` + script + `\`});
 				} else {
@@ -64,7 +67,17 @@ var crxCS = new (function CrxCS() {
 					});
 				}
 			`
-		});
+
+		}, _=>{     /// add error handeling
+		  let e = chrome.runtime.lastError;
+		  if(e !== undefined){
+				window.addEventListener('load', function () {
+					alert('Cant run on this page');
+				}, true);
+		  }
+		});   /// end error handeling
+
+
 	};
 
 	function call(type, tab, funcName, resultCb) {
@@ -86,7 +99,12 @@ var crxCS = new (function CrxCS() {
 	};
 })();
 ///end crxCS
+
+
+
 var notFound = document.createElement("p");
+notFound.setAttribute('class', 'error');
+notFound.innerText = "No video found.";
 
 
 function capture(popup) {
@@ -152,6 +170,7 @@ function capture(popup) {
         callOnLoad(mkImgList);
       } else {
 				popup.document.body.appendChild(notFound);
+
 				// popup.document.body.appendChild(notFoundimgholder);
       }
     });  // end crxCS.callA
