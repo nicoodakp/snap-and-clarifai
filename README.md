@@ -6,8 +6,8 @@
 2. hit "Predict" and the image will parse to the Claifai API. And return celebrity names.
 3. Backend javascript do the part of snapshot, where popup.js do the image parsing, analysis and return result.
 4. (fixed) I am still working on the 'onclick' event in popup.js 100:103, the links wont render accordingly. For now the remedy is catDiv.innerHTML from popup.js 86 where I insert a tag 'target =  blank' to the src.
-5. Working on chrome:// address error, background error when open tab in chrome://url
-6. add drawbox function and some css improvement, working on mouse hover/enter event (to draw specific box).
+5. (fixed) Working on chrome:// address error, background error when open tab in chrome://url
+6. add drawbox function and some css improvement, working on mouse hover/enter event (to draw specific individual box).
 
 Reference: \
 [Clarifai cloud engine](https://www.clarifai.com/models/celebrity-image-recognition-model-e466caa0619f444ab97497640cefc4dc) \
