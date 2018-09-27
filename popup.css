@@ -317,7 +317,7 @@ p {
 	border-bottom: 1px solid;
 }
 
-canvas#canvas
+canvas.canclass
 {
   position: absolute;
   /* top: 180.377px;
