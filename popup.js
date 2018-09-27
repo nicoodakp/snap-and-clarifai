@@ -46,14 +46,36 @@ $('body').on('click', 'a.linky', function (){
 				return false;
 						});
 
-
 /// hightlight individual bounding box while hover to name
-for(var i = 0; i < $( 'canvas' ).length; i++) {
-$( 'body' ).on('mouseenter', 'a.linky',  function () {
-			console.log($( 'canvas' ).length);
-		document.getElementsByClassName('canvas')[i].style.visibility = 'show';
-						});
-					}
+///  dummy drawbox function
+				$( 'body' ).on('mouseenter', "a#linky0" ,  function () {
+						console.log("mouse work?");
+						$('canvas:not(#canvas0)').hide();
+									});
+				$( 'body' ).on('mouseenter', "a#linky1" ,  function () {
+						$('canvas:not(#canvas1)').hide();
+									});
+				$( 'body' ).on('mouseenter', "a#linky2" ,  function () {
+							$('canvas:not(#canvas2)').hide();
+									});
+				$( 'body' ).on('mouseenter', "a#linky3" ,  function () {
+							$('canvas:not(#canvas3)').hide();
+									});
+				$( 'body' ).on('mouseenter', "a#linky4" ,  function () {
+							$('canvas:not(#canvas4)').hide();
+									});
+				$( 'body' ).on('mouseenter', "a#linky5" ,  function () {
+							$('canvas:not(#canvas5)').hide();
+									});
+				$( 'body' ).on('mouseenter', "a#linky6" ,  function () {
+							$('canvas:not(#canvas6)').hide();
+									});
+				$( 'body' ).on('mouseenter', "a#linky7" ,  function () {
+						 $('canvas:not(#canvas7)').hide();
+						 			});
+				$( 'body' ).on('mouseleave', "a.linky" ,  function () {
+			 		   $('.canclass').show();
+									});
 /// end draw box
 
 
@@ -93,9 +115,9 @@ function doPredict(value) {
 			// drawandconnect(x,y,w,h);
 
 			// canvas set up
-			$('img').after( '<canvas id =  canvas></canvas>' ); /// canvas ready for draw face box
+			$('img').after( '<canvas class = canclass' + ' ' + 'id = canvas' +i + ' '+ '></canvas>' ); /// canvas ready for draw face box
 		// end, also adjust the position through css, so now its overlay on img
-			var c = document.getElementById("canvas");
+			var c = document.getElementById("canvas"+i);
 			var ctx = c.getContext("2d");
 			c.width = w*2.8;
 			c.height = h*(.985);
@@ -107,7 +129,7 @@ function doPredict(value) {
 
 					var source = "https://www.youtube.com/results?search_query="+fullname.split(' ').join('+');
 					var catDiv = document.createElement("p");
-					catDiv.innerHTML = "Name:" + " " + "<a"  + " " + " " + "class=" + "linky" + " " + " " + "href=" +  source + ">" + fullname + "</a>" + " " +   "" + percentageprob;
+					catDiv.innerHTML = "Name:" + " " + "<a"  + " " + " " + "class=" + "linky" + " " + "id="+ "linky" +  i +" " + "href=" +  source + ">" + fullname + "</a>" + " " +   "" + percentageprob;
 					// catDiv.setAttribute('alt', 'namee');
 					catDiv.setAttribute('class', 'namee');
 					catDiv.setAttribute('align', 'center');
@@ -128,7 +150,6 @@ function doPredict(value) {
 	} // end doPredict
 }); /// end doc ready function
 
-// draw box - user hover name, show bounding boundingbox
 //  Purpose: Return a capitalized String
 //  Args:
 //    s - A String
