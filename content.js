@@ -7,10 +7,7 @@ document.body.getElementsByClassName("ytp-right-controls")[0].appendChild(ssbutt
 
 $(document).ready(()=> {
        $(".ytp-screenshot-button").click(function() {
-         // alert("click work?")
-         chrome.runtime.getBackgroundPage(function(bg) {
-           bg.capture(window);
-         });
-
+         alert("click work?")
+         
       });
 })
