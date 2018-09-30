@@ -1,4 +1,11 @@
 {
+  "content_scripts": [
+   {  "css": ["youtube-button.css"],
+      "js": ["jq331.js","content.js", "popup.js"],
+      "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"]
+
+   }
+ ],
    "background": {
       "scripts": ["bg.js"]
 
@@ -9,7 +16,7 @@
    },
 
    "web_accessible_resources": [
-    "popup.css"
+    "popup.css","youtube-button.css"
   ],
 
    "description": "Snapshot youtube and find out who the celebrity is.",
@@ -26,5 +33,31 @@
         "http://*/",
         "https://*/"
        ],
-   "version": "0.0.10"
+       "commands": {
+                 "hotkey for extension": {
+                   "suggested_key": {
+                     "default": "Ctrl+Shift+A",
+                     "mac": "Command+Shift+A"
+                   },
+                   "description": "hotkey for extension"
+                 },
+                 "_execute_browser_action": {
+                   "suggested_key": {
+                     "windows": "Ctrl+Shift+A",
+                     "mac": "Command+Shift+A",
+                     "chromeos": "Ctrl+Shift+A",
+                     "linux": "Ctrl+Shift+A"
+                   }
+                 },
+                 "_execute_page_action": {
+                   "suggested_key": {
+                     "default": "Ctrl+Shift+E",
+                     "windows": "Alt+Shift+P",
+                     "mac": "Alt+Shift+P"
+                   }
+                 }
+               },
+
+
+   "version": "0.1.4"
 }
