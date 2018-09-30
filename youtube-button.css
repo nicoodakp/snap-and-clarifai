@@ -1,0 +1,10 @@
+button.ytp-screenshot-button {
+  position: relative;
+  top: -14px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+
+}
