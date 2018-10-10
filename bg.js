@@ -176,3 +176,14 @@ function capture(popup) {
     });  // end crxCS.callA
   });   // end crxCS.insert
 }  // end capture function
+
+// chrome.webNavigation.onHistoryStateUpdated.addListener( function(details) {
+//     chrome.tabs.executeScript(null,{file:"content.js"},_=>{     /// add error handeling
+// 		  let e = chrome.runtime.lastError;
+// 		  if(e !== undefined){
+// 				window.addEventListener('load', function () {
+// 					alert('Cant run on this page');
+// 				}, true);
+// 		  }
+// 		});   /// end error handeling);
+// });
