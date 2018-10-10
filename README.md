@@ -10,7 +10,7 @@
 6. (done)  Add drawbox function and some css improvement, working on mouse hover/enter event (to draw specific individual box).
 7. Trying to add a (YouTube) button to invoke the popup page.(open the extension(screenshot) through the button. ) This one was a little tricky since Google is not allow open extension through content script.
 8. The UI has changed a bit... after clicking the result from popup, the playing video will be minimized and (Youtube) search result
-will be shown on the same tab. So user can searching and watching at the same time.  
+will be shown on the same tab. So user can searching and watching at the same time.  \
 Reference: \
 [Clarifai cloud engine](https://www.clarifai.com/models/celebrity-image-recognition-model-e466caa0619f444ab97497640cefc4dc) \
            [clarifai-javascript-starter](https://github.com/Clarifai/javascript-starter) \
