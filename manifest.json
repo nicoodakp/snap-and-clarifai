@@ -1,9 +1,9 @@
 {
   "content_scripts": [
-   {  "css": ["youtube-button.css"],
-      "js": ["jq331.js","content.js", "popup.js"],
-      "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"]
-
+   { "js": ["jq331.js", "content.js","keepopen.js"],
+     "css": ["youtube-button.css"],
+     "matches": ["<all_urls>"],
+     "run_at": "document_start"
    }
  ],
    "background": {
@@ -16,7 +16,7 @@
    },
 
    "web_accessible_resources": [
-    "popup.css","youtube-button.css"
+    "capture.js","popup.css", "youtube-button.css"
   ],
 
    "description": "Snapshot youtube and find out who the celebrity is.",
@@ -28,22 +28,23 @@
    "manifest_version": 2,
    "content_security_policy": "script-src 'self' https://sdk.clarifai.com/js/clarifai-latest.js https://code.jquery.com/jquery-3.3.1.min.js https://www.google.com/; object-src 'self'" ,
    "name": "ClarifAi my video snapshot",
-   "permissions": [ "activeTab", "downloads",  "<all_urls>","tabs",
+   "permissions": [ "activeTab", "downloads",  "<all_urls>","tabs", "storage","webNavigation",
         "notifications",
         "http://*/",
         "https://*/"
        ],
-       "commands": {
+   "commands": {
                  "hotkey for extension": {
                    "suggested_key": {
-                     "default": "Ctrl+Shift+A",
+                     "default": "Ctrl+Space",
                      "mac": "Command+Shift+A"
                    },
-                   "description": "hotkey for extension"
+                   "description": "hotkey for extension",
+                   "global": true
                  },
                  "_execute_browser_action": {
                    "suggested_key": {
-                     "windows": "Ctrl+Shift+A",
+                     "windows": "Ctrl+Space",
                      "mac": "Command+Shift+A",
                      "chromeos": "Ctrl+Shift+A",
                      "linux": "Ctrl+Shift+A"
@@ -59,5 +60,8 @@
                },
 
 
-   "version": "0.1.4"
+   "version": "0.1.5",
+   "externally_connectable": {
+  "matches": ["*://*.youtube.com/*"]
+}
 }
