@@ -6,7 +6,7 @@ $(function(){    ///doc ready
 
 try {
 	var app = new Clarifai.App({
-	 apiKey: "e806d305ca32413ab54eaed155e5c7bc"
+	 apiKey: "e0c01101e5f944919934b47eff3ced2f"
 	});
 }
 catch(err) {
@@ -38,13 +38,36 @@ var imgb64src, width, height, imgdetail, canvas, ctx;
 					doPredict({ base64: imgdetail });
 
 		});   //end ('action-button').click(function(){
-// });  // end chrome.tabs.onUpdated.addListener
 
 /// once the click generate successful, bind even to the link, and open tab benhind
 $('body').on('click', 'a.linky', function (){
-			chrome.tabs.create({active: false, url: $(this).attr('href')});
-				return false;
-						});
+	let page_url = $(this).attr('href'); // get url to call
+		let page_title = $(this).attr('data-title'); // set data-title in link
+
+
+
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.storage.sync.set({key: page_url}, function() {
+          console.log('Value is set to ' + page_url);
+        });
+		chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+
+		 });
+	});
+
+	chrome.tabs.update({ active: false, url: $(this).attr('href')});
+	 return true;
+			});  //end 'body').on('click', 'a.linky', function (){
+
+/// temperoary closed snap button
+// $('body').on('click', 'button.minimize', function (){
+// 	console.log("click work?");
+// 					chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+// 				  chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+// 					 });
+// 				});
+// 			});
+///closed snap button
 
 /// hightlight individual bounding box while hover to name
 ///  dummy drawbox function
@@ -78,10 +101,10 @@ $('body').on('click', 'a.linky', function (){
 									});
 /// end draw box
 
-
 	//  after some appetize, now its time for the main dish
 function doPredict(value) {
 	app.models.predict("e466caa0619f444ab97497640cefc4dc", value).then(
+
 	    function(response) {
 	      // do something with response
 				console.log(response); // test response, get familiar with the API strucure
@@ -137,6 +160,7 @@ function doPredict(value) {
 					$('.load-wrapp').hide();
 
 				} // end check for region for loop
+
 			} // end if
 			else {
 				var catDiv = document.createElement("p");
@@ -148,6 +172,7 @@ function doPredict(value) {
 	    },  // end response
 	  );  // end app model predict
 	} // end doPredict
+
 }); /// end doc ready function
 
 //  Purpose: Return a capitalized String
