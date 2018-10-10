@@ -39,6 +39,9 @@ $(document).ready(()=> {
             });
 
           localStorage.setItem('lsyoutubelink', youtubelink);
+          chrome.storage.local.set({"cslyoutubelink":youtubelink},function (){
+            console.log("Storage Succesful");
+                    });
 
           // window.location.replace(result.key);
           document.body.appendChild(container);
