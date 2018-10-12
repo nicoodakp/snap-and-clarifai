@@ -24,24 +24,22 @@ $(document).ready(function() {
       document.body.appendChild(container);
       $(".popup-player-container").show();
 
-
       ///drag event
-      var $draggable = $('.draggable').draggabilly({
+      var $draggable = $(".draggable").draggabilly({
         // options...
-      })
+      });
 
-      $draggable.on( 'dragMove', function() {
-$('.popup-player').hide();
-$('#close-iconss').hide();
-});
+      $draggable.on("dragMove", function() {
+        $(".popup-player").hide();
+        $("#close-iconss").hide();
+      });
 
-      $draggable.on( 'dragEnd', function( event, pointer ) {
-$('.popup-player').show();
-$('#close-iconss').show();
-  });
+      $draggable.on("dragEnd", function(event, pointer) {
+        $(".popup-player").show();
+        $("#close-iconss").show();
+      });
 
-///
-
+      ///
 
       var overlay = document.createElement("iframe");
       var oStyle = overlay.style;
@@ -69,8 +67,8 @@ $('#close-iconss').show();
       var closeicon = document.createElement("i");
       clostyle = closeicon.style;
       clostyle.position = "relative";
-      clostyle.top = '-3.28in';
-      clostyle.right = '-5.06in';
+      clostyle.top = "-3.28in";
+      clostyle.right = "-5.06in";
       clostyle.color = "white";
       clostyle.cursor = "pointer";
       closeicon.setAttribute("class", "material-icons");
@@ -105,7 +103,7 @@ chrome.storage.local.get(["cslyoutubelink"], function(obj) {
   container.setAttribute("class", "popup-player-container draggable");
   container.setAttribute("draggable", "true");
   conStyle.width = "518px";
-  conStyle.height='329px';
+  conStyle.height = "329px";
   conStyle.position = "fixed";
   conStyle.zIndex = "1000";
   conStyle.display = "none !important";
