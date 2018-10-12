@@ -18,6 +18,8 @@ $(document).ready(()=> {
                       "from the extension");
           if (request.greeting == "hello")
           chrome.storage.sync.get(['key'], function(result) {
+
+
           console.log('Value currently is ' + result.key);
           var obj = { url: result.key };
           name = result.key.split('=')[1];
@@ -34,13 +36,11 @@ $(document).ready(()=> {
           playtime = Math.round(video.currentTime);
           console.log("current play time is " + playtime);
           var youtubelink = "https://www.youtube.com/embed/" + video_id + "?start=" + playtime + "&autoplay=1" + "&modestbranding=1" ;
-          chrome.storage.sync.set({youtubelink: youtubelink}, function() {
-              console.log('storage youtubelink sets to ' + youtubelink);
-            });
-
-          localStorage.setItem('lsyoutubelink', youtubelink);
+          // chrome.storage.sync.set({youtubelink: youtubelink}, function() {
+          //     console.log('storage youtubelink sets to ' + youtubelink);
+          //   });
           chrome.storage.local.set({"cslyoutubelink":youtubelink},function (){
-            console.log("Storage Succesful");
+            console.log("Storage cslyoutubelink Succesful");
                     });
 
           // window.location.replace(result.key);
@@ -51,19 +51,20 @@ $(document).ready(()=> {
           document.head.appendChild(linkkk);
 
 
+
           document.body.appendChild(container);
-          $('.popup-player-container').show();
+          $('.popup-player-container').hide();
+
           var overlay=document.createElement("iframe");
           var oStyle=overlay.style;
           overlay.setAttribute('id', 'player');
           overlay.setAttribute('class', 'popup-player');
           overlay.setAttribute('src', youtubelink);
-          oStyle.position='fixed';
+          oStyle.position='relative';
           oStyle.display='block !important';
           oStyle.width='500px';
           oStyle.height='314px';
-          oStyle.top='6.2.4in';
-          oStyle.right='18.5px';
+          oStyle.right='-7.5px';
           oStyle.borderRadius='3px';
           oStyle.border='1px solid #000';
           $('.popup-player-container').append(overlay);
@@ -71,9 +72,10 @@ $(document).ready(()=> {
           var closeicon = document.createElement("i");
               clostyle = closeicon.style;
               clostyle.position='relative';
-              clostyle.top = '1px';
-              clostyle.right = '-5.13in';
+              clostyle.top = '-3.3in';
+              clostyle.right = '-5.12in';
               clostyle.color = 'white';
+              clostyle.zIndex = '9999';
               clostyle.cursor = 'pointer';
               closeicon.setAttribute("class", "material-icons");
               closeicon.setAttribute("id", "close-iconss");
@@ -111,6 +113,7 @@ conStyle.height='319px';
 conStyle.position='fixed';
 conStyle.zIndex='1000';
 conStyle.display='none';
-conStyle.top='56%';
-conStyle.right='0.1in';
+conStyle.top='65%';
+conStyle.right='2.2px';
 conStyle.background='black';
+conStyle.borderRadius='12px';

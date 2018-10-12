@@ -1,6 +1,5 @@
-
 #video-popup-container {
-  display:none;
+  display: none;
   position: fixed;
   z-index: 996;
   width: 30%;
@@ -58,5 +57,5 @@
 }
 
 #video-popup-close:hover {
-  color: #DE0023;
+  color: #de0023;
 }

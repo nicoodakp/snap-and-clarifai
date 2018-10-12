@@ -1,8 +1,8 @@
 {
   "content_scripts": [
-   { "js": ["jq331.js", "content.js","keepopen.js"],
+   { "js": ["jq331.js",  "content.js","keepopen.js"],
      "css": ["youtube-button.css"],
-     "matches": ["<all_urls>"],
+     "matches": ["http://*/*", "https://*/*"],
      "run_at": "document_start"
    }
  ],
