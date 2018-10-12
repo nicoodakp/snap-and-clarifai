@@ -55,6 +55,22 @@ $(document).ready(()=> {
           document.body.appendChild(container);
           $('.popup-player-container').hide();
 
+          ///drag event
+          var $draggable = $('.draggable').draggabilly({
+            // options...
+          })
+
+          $draggable.on( 'dragMove', function() {
+    $('.popup-player').hide();
+    $('#close-iconss').hide();
+    });
+
+          $draggable.on( 'dragEnd', function( event, pointer ) {
+    $('.popup-player').show();
+    $('#close-iconss').show();
+      });
+
+  ///
           var overlay=document.createElement("iframe");
           var oStyle=overlay.style;
           overlay.setAttribute('id', 'player');
@@ -62,18 +78,19 @@ $(document).ready(()=> {
           overlay.setAttribute('src', youtubelink);
           oStyle.position='relative';
           oStyle.display='block !important';
-          oStyle.width='500px';
-          oStyle.height='314px';
-          oStyle.right='-7.5px';
-          oStyle.borderRadius='3px';
-          oStyle.border='1px solid #000';
+          oStyle.width = "500px";
+          oStyle.height = "315px";
+          oStyle.top = "6px";
+          oStyle.right = "-8.5px";
+          oStyle.borderRadius = "11px";
+          oStyle.border='1px solid rgb(39, 147, 230)';
           $('.popup-player-container').append(overlay);
 
           var closeicon = document.createElement("i");
               clostyle = closeicon.style;
               clostyle.position='relative';
-              clostyle.top = '-3.3in';
-              clostyle.right = '-5.12in';
+              clostyle.top = '-3.28in';
+              clostyle.right = '-5.06in';
               clostyle.color = 'white';
               clostyle.zIndex = '9999';
               clostyle.cursor = 'pointer';
@@ -107,13 +124,15 @@ $('.ytp-miniplayer-button').trigger('click');
 
 var container = document.createElement("div");
 var conStyle=container.style;
-container.setAttribute('class', 'popup-player-container');
-conStyle.width='518px';
-conStyle.height='319px';
+
+container.setAttribute('class', 'popup-player-container draggable');
+conStyle.width='520px';
+conStyle.height='329px';
 conStyle.position='fixed';
 conStyle.zIndex='1000';
 conStyle.display='none';
 conStyle.top='65%';
 conStyle.right='2.2px';
-conStyle.background='black';
+conStyle.background='rgb(39, 147, 230)';
 conStyle.borderRadius='12px';
+conStyle.cursor = "-webkit-grab";

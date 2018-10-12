@@ -8,3 +8,7 @@ button.ytp-screenshot-button {
   cursor: pointer;
 
 }
+
+
+/* drag event */
+.draggable.is-dragging { opacity: .5; }

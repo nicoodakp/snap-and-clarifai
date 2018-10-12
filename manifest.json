@@ -1,6 +1,6 @@
 {
   "content_scripts": [
-   { "js": ["jq331.js",  "content.js","keepopen.js"],
+   { "js": ["jq331.js", "draggable.js", "content.js","keepopen.js"],
      "css": ["youtube-button.css"],
      "matches": ["http://*/*", "https://*/*"],
      "run_at": "document_start"
